@@ -18,6 +18,13 @@ CREATE TABLE seances (
     salle VARCHAR(50),
     filmId INT,
     FOREIGN KEY (filmId) REFERENCES films(filmId)
+    FOREIGN KEY (spectateurId) REFERENCES spectateurs(spectateurId)
+);
+
+CREATE TABLE spectateurs (
+    spectateurId INT PRIMARY KEY,
+    nom VARCHAR(250) NOT NULL,
+    email VARCHAR(250) unique NOT NULL
 );
 
 
