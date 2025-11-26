@@ -1,17 +1,37 @@
 package models;
 
-public class Ticket {
-    private static int nextId=1;
-    private final int ticketId;
-    private float prix;
+import java.sql.*;
+import java.util.Scanner;
+import utils.DBConnection;
 
-    public Ticket(float prix){
+public class Ticket {
+    Scanner input = new Scanner(System.in);
+    private static int nextId=1;
+    private int ticketId;
+    private float prix;
+    private int spectateurId;
+    private int seanceId;
+
+    public Ticket(int spectateurId,int seanceId){
         this.ticketId = nextId++;
-        this.prix = prix;
+        this.spectateurId = spectateurId;
+        this.seanceId = seanceId;
+    }
+
+    public int getSpectateurId() {
+        return spectateurId;
+    }
+
+    public int getSeanceId() {
+        return seanceId;
     }
 
     public int getTicketId() {
         return ticketId;
+    }
+
+    public float getPrix() {
+        return prix;
     }
 
     public void setPrix(float prix) {
@@ -20,8 +40,8 @@ public class Ticket {
 
     public String afficherTicket() {
         return "Ticket{" +
-                "ticketId=" + ticketId +
-                ", prix=" + prix +
+                "ticketId=" + this.getTicketId() +
+                ", prix=" + this.getPrix() +
                 '}';
     }
 }
