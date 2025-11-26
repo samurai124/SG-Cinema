@@ -12,10 +12,11 @@ public class Ticket {
     private int spectateurId;
     private int seanceId;
 
-    public Ticket(int spectateurId,int seanceId){
+    public Ticket(float prix, int spectateurId ,int seanceId){
         this.ticketId = nextId++;
         this.spectateurId = spectateurId;
         this.seanceId = seanceId;
+        this.prix = prix;
     }
 
     public int getSpectateurId() {

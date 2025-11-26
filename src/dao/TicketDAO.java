@@ -14,16 +14,16 @@ public class TicketDAO {
      public TicketDAO(Connection connection){
          this.connection = connection;
      }
-    public void addTicket(Ticket t) throws SQLException {
-        String addQuery = "INSERT INTO tickets(prix,spectateurId,seanceId) VALUES (?)";
-//      System.out.print("Enter the price :");
-//      float price = input.nextFloat();
-//        Ticket t1 = new Ticket();
-        tickets.add(t);
+    public void addTicket() throws SQLException {
+        String addQuery = "INSERT INTO tickets(prix,spectateurId,seanceId) VALUES (?,?,?)";
+      System.out.print("Enter the price :");
+      float price = input.nextFloat();
+        Ticket t1 = new Ticket(price,1,1);
+        tickets.add(t1);
         PreparedStatement addStmt = connection.prepareStatement(addQuery);
-        addStmt.setDouble(1, t.getPrix() );
-        addStmt.setInt(2, t.getSpectateurId() );
-        addStmt.setInt(3, t.getSeanceId());
+        addStmt.setFloat(1, t1.getPrix() );
+        addStmt.setInt(2, t1.getSpectateurId() );
+        addStmt.setInt(3, t1.getSeanceId());
         int result = addStmt.executeUpdate();
         System.out.println(result + " records inserted");
     }

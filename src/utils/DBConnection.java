@@ -11,7 +11,6 @@ public class DBConnection {
     private static final String PASSWORD = "";
     private DBConnection(){}
     public static Connection getConnection(){
-//        String url = URL  + "?useSSL=false&serverTimezone=UTC";
             try{
                 return DriverManager.getConnection(URL , USER , PASSWORD);
             } catch(SQLException e){

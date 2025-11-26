@@ -46,8 +46,8 @@ public class Seance {
             System.out.println("Tickets out of stock");
         }
         TicketDAO ticketDAO1 = new TicketDAO(DBConnection.getConnection());
-        Ticket ticket1 = new Ticket(this.seanceId,spec.getSpectateurId());
-        ticketDAO1.addTicket(ticket1);
+//        Ticket ticket1 = new Ticket(this.seanceId,spec.getSpectateurId());
+        ticketDAO1.addTicket();
 
     }
 

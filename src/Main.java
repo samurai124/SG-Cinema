@@ -12,7 +12,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Connection con1 = DBConnection.getConnection();
         TicketDAO ticketDAO1 = new TicketDAO(con1);
-        Menu menu1 = new Menu(14.5F);
+        Menu menu1 = new Menu();
         menu1.afficherMenu(ticketDAO1);
 
     }

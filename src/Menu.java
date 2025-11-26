@@ -4,8 +4,8 @@ import dao.TicketDAO;
 import models.Ticket;
 public class Menu {
     public float prix;
-    public Menu(float prix){
-        this.prix = prix;
+    public Menu(){
+
     }
     public void afficherMenu(TicketDAO ticketDAO) throws SQLException {
         int choix;
@@ -20,7 +20,7 @@ public class Menu {
 
             switch(choix){
                 case 1:
-//                    ticketDAO.addTicket();
+                    ticketDAO.addTicket();
                     break;
                 case 2:
                     ticketDAO.getAllTickets();
