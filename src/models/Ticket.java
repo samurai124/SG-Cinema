@@ -1,8 +1,9 @@
 package models;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import utils.DBConnection;
 
 public class Ticket {
     Scanner input = new Scanner(System.in);
@@ -12,23 +13,21 @@ public class Ticket {
     private int spectateurId;
     private int seanceId;
 
-    public Ticket(float prix, int spectateurId ,int seanceId){
+
+    public Ticket(float prix,int spectateurId,int seanceId){
         this.ticketId = nextId++;
+        this.prix = prix;
         this.spectateurId = spectateurId;
         this.seanceId = seanceId;
-        this.prix = prix;
-    }
 
-    public int getSpectateurId() {
-        return spectateurId;
-    }
-
-    public int getSeanceId() {
-        return seanceId;
     }
 
     public int getTicketId() {
         return ticketId;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public float getPrix() {
@@ -39,10 +38,20 @@ public class Ticket {
         this.prix = prix;
     }
 
-    public String afficherTicket() {
-        return "Ticket{" +
-                "ticketId=" + this.getTicketId() +
-                ", prix=" + this.getPrix() +
-                '}';
+    public int getSpectateurId() {
+        return spectateurId;
     }
+
+    public void setSpectateurId(int spectateurId) {
+        this.spectateurId = spectateurId;
+    }
+
+    public int getSeanceId() {
+        return seanceId;
+    }
+
+    public void setSeanceId(int seanceId) {
+        this.seanceId = seanceId;
+    }
+
 }
