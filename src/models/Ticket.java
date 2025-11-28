@@ -7,15 +7,14 @@ import java.util.Scanner;
 
 public class Ticket {
     Scanner input = new Scanner(System.in);
-    private static int nextId=1;
     private int ticketId;
     private float prix;
     private int spectateurId;
     private int seanceId;
 
 
-    public Ticket(float prix,int spectateurId,int seanceId){
-        this.ticketId = nextId++;
+    public Ticket(int ticketId,float prix,int spectateurId,int seanceId){
+        this.ticketId = ticketId;
         this.prix = prix;
         this.spectateurId = spectateurId;
         this.seanceId = seanceId;
@@ -26,32 +25,15 @@ public class Ticket {
         return ticketId;
     }
 
-    public void setTicketId(int ticketId) {
-        this.ticketId = ticketId;
-    }
-
     public float getPrix() {
         return prix;
-    }
-
-    public void setPrix(float prix) {
-        this.prix = prix;
     }
 
     public int getSpectateurId() {
         return spectateurId;
     }
 
-    public void setSpectateurId(int spectateurId) {
-        this.spectateurId = spectateurId;
-    }
-
     public int getSeanceId() {
         return seanceId;
     }
-
-    public void setSeanceId(int seanceId) {
-        this.seanceId = seanceId;
-    }
-
 }

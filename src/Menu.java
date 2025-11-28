@@ -30,8 +30,8 @@ public class Menu {
                     int spectateurId = input.nextInt();
                     System.out.println("Enter the seance id:");
                     int seanceId = input.nextInt();
-                    Ticket t1 = new Ticket(prix,spectateurId,seanceId);
-                    dao.getTickets().add(t1);
+//                    Ticket t1 = new Ticket(prix,spectateurId,seanceId);
+//                    dao.getTickets().add(t1);
                     dao.addTicket(prix,spectateurId,seanceId);
                     break;
                 case 2:

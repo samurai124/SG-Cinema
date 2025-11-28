@@ -27,7 +27,6 @@ public class TicketDAO {
         String selectQuery = "SELECT * FROM tickets";
         Statement showStmt = connection.createStatement();
         ResultSet resultSet = showStmt.executeQuery(selectQuery);
-
         while (resultSet.next()) {
             int ticketId = resultSet.getInt("ticketId");
             float prix = resultSet.getFloat("prix");
@@ -38,7 +37,8 @@ public class TicketDAO {
         resultSet.close();
         showStmt.close();
     }
-    public void getTicketById(int id) throws SQLException {
+    public Ticket getTicketById(int id) throws SQLException {
+        Ticket t = null;
         String idQuery = "SELECT * FROM tickets WHERE ticketId = ?";
         PreparedStatement idStmt = connection.prepareStatement(idQuery);
         idStmt.setInt(1,id);
@@ -48,12 +48,20 @@ public class TicketDAO {
             float prix = resultSet.getFloat("prix");
             int spectateurId = resultSet.getInt("spectateurId");
             int seanceId = resultSet.getInt("seanceId");
+            t = new Ticket(
+                    resultSet.getInt("ticketId"),
+                    resultSet.getFloat("prix"),
+                    resultSet.getInt("spectateurId"),
+                    resultSet.getInt("seanceId")
+            );
             System.out.println("ID: " + ticketId + ", Prix : " + prix + ", spectateurId : " + spectateurId + ", seanceId : " + seanceId);
-        } else {
-            System.out.println("No ticket found with id " + id);
         }
         resultSet.close();
         idStmt.close();
+        if (t == null) {
+            System.out.println("No ticket found with id " + id);
+        }
+        return t;
     }
 
     public void deleteTicket(int id) throws SQLException {
