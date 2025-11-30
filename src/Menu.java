@@ -1,7 +1,6 @@
 import java.sql.SQLException;
 import java.util.Scanner;
-import dao.TicketDAO;
-import models.Ticket;
+import Ticket.TicketDAO;
 
 public class Menu {
 
